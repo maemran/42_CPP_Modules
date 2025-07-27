@@ -6,54 +6,43 @@
 /*   By: maemran < maemran@student.42amman.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/27 19:47:26 by maemran           #+#    #+#             */
-/*   Updated: 2025/07/27 20:46:35 by maemran          ###   ########.fr       */
+/*   Updated: 2025/07/28 02:13:30 by maemran          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-#include <string>
-#include <cctype>
 #include "Contact.hpp"
+#include "PhoneBook.hpp"
+#include <iomanip>
 
-int digits_check(std::string str)
+std::string truncate_str(std::string str)
 {
-    int i;
     int length;
+    std::string new_str;
 
-    i = 0;
     length = str.length();
-    while (i < length)
-    {
-        if (std::isdigit(str[i]) == 0)
-            return (0);
-        i++;
-    }
-    return (1);
+    if (length < 10)
+        return (str);
+    new_str = str.substr(0, 10);
+    new_str[9] = '.';
+    return (new_str);
 }
 
-int add_object(Contact info)
-{   
-    std::cout << "Enter first name please: " << std::endl;
-    std::cin >> info.first_name;
-    std::cout << "Enter last name please: " << std::endl;
-    std::cin >> info.last_name;
-    std::cout << "Enter nikname: " << std::endl;
-    std::cin >> info.nickname;
-    std::cout << "Enter darkest secret: " << std::endl;
-    std::cin >> info.darkest_secret;
-    std::cout << "phone number: " << std::endl;
-    std::cin >> info.phone_number;
-    if (!digits_check(info.phone_number))
-    {
-        std::cout << "Invalid input. Please enter digits only." << std::endl;
-        return (0);
-    }
-    return (1);
+void    searching_table(void)
+{
+    std::cout << std::setw(10) << std::left << "index";
+    std::cout << "|";
+    std::cout << std::setw(10) << std::left << "first name";
+    std::cout << "|";
+    std::cout << std::setw(10) << std::left << "last name";
+    std::cout << "|";
+    std::cout << std::setw(10) << std::left << "nickname" << std::endl;
 }
 
 int main(void)
 {
     int flag = 1;
+    int index;
+    PhoneBook list;
     while (flag)
     {
         std::cout << "Select one of this choices: " << std::endl;
@@ -63,18 +52,33 @@ int main(void)
         if (choice == "ADD")
         {
             Contact info;
-            if (!add_object(info))
-                return (1);
+            info.passing_info();
+            list.add_contact_info(info);
         }
         else if (choice == "SEARCH")
         {
-            
+            searching_table();
+            for (int i = 0; i < PhoneBook::count; i++)
+            {
+                std::cout << std::setw(10) << std::left << i << "|" << std::setw(10) << std::left << truncate_str(list.contacts[i].first_name) << "|";
+                std::cout << std::setw(10) << std::left << truncate_str(list.contacts[i].last_name) << "|" << std::setw(10) << std::left << truncate_str(list.contacts[i].nickname);
+                std::cout << std::endl;
+            }
+            std::cout << "Enter index of contact: " << std::endl;
+            std::cin >> index;
+            if (index < PhoneBook::count && index >= 0)
+            {
+                std::cout << "first name: " << list.contacts[index].first_name << std::endl;
+                std::cout << "last name: " << list.contacts[index].last_name << std::endl;
+                std::cout << "nickname: " << list.contacts[index].nickname << std::endl;
+                std::cout << "phone number: " << list.contacts[index].phone_number << std::endl;
+                std::cout << "darkest_secret: " << list.contacts[index].darkest_secret << std::endl;
+            }
+            else 
+                std::cout << "Invalid index" << std::endl; 
         }
         else if (choice == "EXIT")
             flag = 0;
-        else
-        {
-            
-        }
     }
+    return (0);
 }
