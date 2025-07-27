@@ -1,3 +1,4 @@
+CPP = c++
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98
 SRC =  megaphone.cpp
 OBJ_DIR = OBJS
@@ -7,10 +8,10 @@ NAME = megaphone
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	c++ $(CPPFLAGS) $(OBJ) -o $(NAME)
+	$(CPP) $(CPPFLAGS) $(OBJ) -o $(NAME)
 
 $(OBJ_DIR)/%.o: %.cpp | $(OBJ_DIR)
-	c++ $(CPPFLAGS) -c $< -o $@
+	$(CPP) $(CPPFLAGS) -c $< -o $@
 
 $(OBJ_DIR):
 	mkdir -p $(OBJ_DIR)
