@@ -1,13 +1,13 @@
 CPP = c++
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98
-SRC =  main.cpp Contact.cpp PhoneBook.cpp
+SRC =  main.cpp Contact.cpp PhoneBook.cpp utils.cpp
 OBJ_DIR = OBJS
 OBJ = $(addprefix $(OBJ_DIR)/, $(SRC:.cpp=.o))
 NAME = phoneContacts
 
 all: $(NAME)
 
-$(NAME): $(OBJ) Contact.hpp PhoneBook.hpp
+$(NAME): $(OBJ) Contact.hpp PhoneBook.hpp phone_contacts.hpp
 	$(CPP) $(CPPFLAGS) $(OBJ) -o $(NAME)
 
 $(OBJ_DIR)/%.o: %.cpp | $(OBJ_DIR) 

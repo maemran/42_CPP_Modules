@@ -6,7 +6,7 @@
 /*   By: maemran < maemran@student.42amman.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/27 18:38:43 by maemran           #+#    #+#             */
-/*   Updated: 2025/07/28 10:29:37 by maemran          ###   ########.fr       */
+/*   Updated: 2025/07/28 11:48:41 by maemran          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,22 +15,6 @@
 Contact::Contact() {}
 
 Contact::~Contact() {}
-
-int Contact::digits_check(std::string str)
-{
-    int i;
-    int length;
-
-    i = 0;
-    length = str.length();
-    while (i < length)
-    {
-        if (std::isdigit(str[i]) == 0)
-            return (0);
-        i++;
-    }
-    return (1);
-}
 
 void Contact::passing_info()
 {   

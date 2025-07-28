@@ -6,57 +6,22 @@
 /*   By: maemran < maemran@student.42amman.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/27 19:47:26 by maemran           #+#    #+#             */
-/*   Updated: 2025/07/28 11:11:33 by maemran          ###   ########.fr       */
+/*   Updated: 2025/07/28 13:30:33 by maemran          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Contact.hpp"
-#include "PhoneBook.hpp"
-#include <iomanip>
-
-std::string truncate_str(std::string str)
-{
-    int length;
-    std::string new_str;
-
-    length = str.length();
-    if (length < 10)
-        return (str);
-    new_str = str.substr(0, 10);
-    new_str[9] = '.';
-    return (new_str);
-}
-
-void    searching_table(void)
-{
-    std::cout << std::setw(10) << std::left << "index";
-    std::cout << "|";
-    std::cout << std::setw(10) << std::left << "first name";
-    std::cout << "|";
-    std::cout << std::setw(10) << std::left << "last name";
-    std::cout << "|";
-    std::cout << std::setw(10) << std::left << "nickname" << std::endl;
-}
-
-void    prompt(void)
-{
-    std::cout << "\033[38;5;46m> SYSTEM: PHONEBOOK INTERFACE \033[0m" << std::endl;
-    std::cout << "\033[38;5;46m> COMMAND OPTIONS:\033[0m" << std::endl;
-    std::cout << "  ▸ \033[32mADD     \033[0m→ Add new contact" << std::endl;
-    std::cout << "  ▸ \033[33mSEARCH  \033[0m→ View saved contacts" << std::endl;
-    std::cout << "  ▸ \033[31mEXIT    \033[0m→ Terminate session" << std::endl;
-    std::cout << "\033[38;5;46m> Awaiting input:\033[0m" << std::endl;
-}
+#include "phone_contacts.hpp"
 
 int main(void)
 {
     int flag = 1;
-    int index;
+    int n_index;
+    std::string s_index;
+    std::string choice;
     PhoneBook list;
     while (flag)
     {
         prompt();
-        std::string choice;
         std::cin >> choice;
         if (choice == "ADD")
         {
@@ -74,16 +39,22 @@ int main(void)
                 std::cout << std::endl;
             }
             std::cout << "\033[38;5;46m> Enter index of contact:\033[0m " << std::endl;
-            std::cin >> index;
+            std::cin >> s_index;
             std::cout << std::endl;
-            if (index < PhoneBook::count && index >= 0)
+            if (!digits_check(s_index))
             {
-                std::cout << "\033[38;5;201m▸ first name:\033[0m " << list.contacts[index].first_name << std::endl;
-                std::cout << "\033[38;5;201m▸ last name:\033[0m " << list.contacts[index].last_name << std::endl;
-                std::cout << "\033[38;5;201m▸ nickname:\033[0m " << list.contacts[index].nickname << std::endl;
-                std::cout << "\033[38;5;201m▸ phone number:\033[0m " << list.contacts[index].phone_number << std::endl;
-                std::cout << "\033[38;5;201m▸ darkest_secret:\033[0m " << list.contacts[index].darkest_secret << std::endl;
+                while (1)
+                {
+                    std::cout << "\033[38;5;196mInvalid input,\033[0m Please enter digits only: " << std::endl;
+                    std::cin >> s_index;
+                    if (digits_check(s_index))
+                        break;
+                }
             }
+            std::stringstream input(s_index);
+            input >> n_index;
+            if (n_index < PhoneBook::count && n_index >= 0)
+                print_info(list, n_index);
             else
                 std::cout << "\033[38;5;196mInvalid index\033[0m" << std::endl;
             std::cout << std::endl;
