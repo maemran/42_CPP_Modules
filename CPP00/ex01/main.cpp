@@ -6,7 +6,7 @@
 /*   By: maemran < maemran@student.42amman.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/27 19:47:26 by maemran           #+#    #+#             */
-/*   Updated: 2025/07/28 02:13:30 by maemran          ###   ########.fr       */
+/*   Updated: 2025/07/28 11:11:33 by maemran          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,16 @@ void    searching_table(void)
     std::cout << std::setw(10) << std::left << "nickname" << std::endl;
 }
 
+void    prompt(void)
+{
+    std::cout << "\033[38;5;46m> SYSTEM: PHONEBOOK INTERFACE \033[0m" << std::endl;
+    std::cout << "\033[38;5;46m> COMMAND OPTIONS:\033[0m" << std::endl;
+    std::cout << "  ▸ \033[32mADD     \033[0m→ Add new contact" << std::endl;
+    std::cout << "  ▸ \033[33mSEARCH  \033[0m→ View saved contacts" << std::endl;
+    std::cout << "  ▸ \033[31mEXIT    \033[0m→ Terminate session" << std::endl;
+    std::cout << "\033[38;5;46m> Awaiting input:\033[0m" << std::endl;
+}
+
 int main(void)
 {
     int flag = 1;
@@ -45,8 +55,7 @@ int main(void)
     PhoneBook list;
     while (flag)
     {
-        std::cout << "Select one of this choices: " << std::endl;
-        std::cout << "ADD || SEARCH || EXIT" << std::endl;
+        prompt();
         std::string choice;
         std::cin >> choice;
         if (choice == "ADD")
@@ -64,18 +73,20 @@ int main(void)
                 std::cout << std::setw(10) << std::left << truncate_str(list.contacts[i].last_name) << "|" << std::setw(10) << std::left << truncate_str(list.contacts[i].nickname);
                 std::cout << std::endl;
             }
-            std::cout << "Enter index of contact: " << std::endl;
+            std::cout << "\033[38;5;46m> Enter index of contact:\033[0m " << std::endl;
             std::cin >> index;
+            std::cout << std::endl;
             if (index < PhoneBook::count && index >= 0)
             {
-                std::cout << "first name: " << list.contacts[index].first_name << std::endl;
-                std::cout << "last name: " << list.contacts[index].last_name << std::endl;
-                std::cout << "nickname: " << list.contacts[index].nickname << std::endl;
-                std::cout << "phone number: " << list.contacts[index].phone_number << std::endl;
-                std::cout << "darkest_secret: " << list.contacts[index].darkest_secret << std::endl;
+                std::cout << "\033[38;5;201m▸ first name:\033[0m " << list.contacts[index].first_name << std::endl;
+                std::cout << "\033[38;5;201m▸ last name:\033[0m " << list.contacts[index].last_name << std::endl;
+                std::cout << "\033[38;5;201m▸ nickname:\033[0m " << list.contacts[index].nickname << std::endl;
+                std::cout << "\033[38;5;201m▸ phone number:\033[0m " << list.contacts[index].phone_number << std::endl;
+                std::cout << "\033[38;5;201m▸ darkest_secret:\033[0m " << list.contacts[index].darkest_secret << std::endl;
             }
-            else 
-                std::cout << "Invalid index" << std::endl; 
+            else
+                std::cout << "\033[38;5;196mInvalid index\033[0m" << std::endl;
+            std::cout << std::endl;
         }
         else if (choice == "EXIT")
             flag = 0;
