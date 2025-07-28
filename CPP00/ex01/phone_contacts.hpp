@@ -6,18 +6,15 @@
 /*   By: maemran < maemran@student.42amman.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/28 13:00:19 by maemran           #+#    #+#             */
-/*   Updated: 2025/07/28 13:31:01 by maemran          ###   ########.fr       */
+/*   Updated: 2025/07/28 14:50:48 by maemran          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PHONE_CONTATCTS_H
 #define PHONE_CONTATCTS_H
 
-#include <string>
-#include <cctype>
-#include <iostream>
-#include "Contact.hpp"
 #include "PhoneBook.hpp"
+
 #include <iomanip>
 #include <sstream>
 
