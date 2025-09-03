@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   randomChump.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: maemran <maemran@student.42.fr>            +#+  +:+       +#+        */
+/*   By: maemran < maemran@student.42amman.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/02 16:26:54 by maemran           #+#    #+#             */
-/*   Updated: 2025/09/03 17:45:01 by maemran          ###   ########.fr       */
+/*   Updated: 2025/09/04 00:17:53 by maemran          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,6 @@
 
 void        randomChump( std::string name )
 {
-	Zombie	*zombie = new (std::nothrow) Zombie(name);
-	if (!zombie)
-		return ;
-	zombie->announce();
+	Zombie	zombie(name);
+	zombie.announce();
 }

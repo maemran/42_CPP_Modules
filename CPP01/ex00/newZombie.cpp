@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   newZombie.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: maemran <maemran@student.42.fr>            +#+  +:+       +#+        */
+/*   By: maemran < maemran@student.42amman.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/02 16:26:32 by maemran           #+#    #+#             */
-/*   Updated: 2025/09/03 20:25:16 by maemran          ###   ########.fr       */
+/*   Updated: 2025/09/03 23:47:03 by maemran          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@ Zombie*     newZombie( std::string name )
 	return (zombie);
 }
 
-void	newZ( std::string name )
+Zombie	newZ( std::string name )
 {
 	Zombie	z(name);
 	std::cout << &z << std::endl;
-	//return (z);
+	return (z);
 }
