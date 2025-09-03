@@ -6,7 +6,7 @@
 /*   By: maemran <maemran@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/02 16:54:31 by maemran           #+#    #+#             */
-/*   Updated: 2025/09/02 20:02:56 by maemran          ###   ########.fr       */
+/*   Updated: 2025/09/03 20:20:45 by maemran          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,14 +25,10 @@ class   Zombie
         Zombie();
         Zombie(std::string name);
         ~Zombie();
-};
+	};
 
+void		newZ( std::string name);
 Zombie*     newZombie( std::string name );
 void        randomChump( std::string name );
 
 #endif
-
-
-// getters and setters                          tm
-// how to dfine objects using pointers          
-// 

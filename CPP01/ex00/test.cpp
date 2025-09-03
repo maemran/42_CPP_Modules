@@ -6,39 +6,43 @@
 /*   By: maemran <maemran@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/02 18:49:29 by maemran           #+#    #+#             */
-/*   Updated: 2025/09/02 19:25:51 by maemran          ###   ########.fr       */
+/*   Updated: 2025/09/03 19:54:27 by maemran          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include <string>
+#include <cstdlib>
+#include <sstream>
 
 class test
 {
-    private:
-        std::string name;
-    public:
-        void    setName(std::string name) const;
-        std::string    getName( void ) const;
+	private:
+		std::string _name;
+	public:
+		int x;
+		std::string    getName( void ) const;
+		void    setName( std::string name );
+		void    printValue( void );
 };
 
-void test::setName (std::string name) const
+void test::setName (std::string name)
 {
-    this->name = name;
+	this->_name = name;
 }
 
-std::string    test::getName(void) const
+std::string    test::getName( void ) const
 {
-    return (name);   
+	return (_name);   
 }
 
-int main() {
-
-    test    t;
-    
-    t.setName("mohammad");
-    std::cout << t.getName() << std::endl;
-    return 0;
+void    test::printValue( void )
+{
+	std::cout << x << std::endl;
 }
 
-
+int main(void)
+{
+	
+	return 0;
+}
