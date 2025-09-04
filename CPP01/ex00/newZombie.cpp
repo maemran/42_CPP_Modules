@@ -6,7 +6,7 @@
 /*   By: maemran < maemran@student.42amman.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/02 16:26:32 by maemran           #+#    #+#             */
-/*   Updated: 2025/09/03 23:47:03 by maemran          ###   ########.fr       */
+/*   Updated: 2025/09/04 11:19:43 by maemran          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,4 @@ Zombie*     newZombie( std::string name )
 	if (!zombie)
 		return (NULL);
 	return (zombie);
-}
-
-Zombie	newZ( std::string name )
-{
-	Zombie	z(name);
-	std::cout << &z << std::endl;
-	return (z);
 }

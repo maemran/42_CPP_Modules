@@ -6,7 +6,7 @@
 /*   By: maemran < maemran@student.42amman.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/02 16:54:31 by maemran           #+#    #+#             */
-/*   Updated: 2025/09/04 00:04:01 by maemran          ###   ########.fr       */
+/*   Updated: 2025/09/04 10:06:08 by maemran          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 class   Zombie
 {
     private:
-        std::string name;
+        std::string _name;
     public:
         Zombie();
         ~Zombie();

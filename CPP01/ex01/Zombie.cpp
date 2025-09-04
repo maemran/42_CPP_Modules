@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: maemran < maemran@student.42amman.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/02 16:26:15 by maemran           #+#    #+#             */
-/*   Updated: 2025/09/04 10:06:28 by maemran          ###   ########.fr       */
+/*   Created: 2025/09/04 10:04:37 by maemran           #+#    #+#             */
+/*   Updated: 2025/09/04 11:05:42 by maemran          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,19 @@
 
 Zombie::Zombie() {}
 
-Zombie::Zombie(std::string name)
+Zombie::~Zombie() 
+{
+	std::cout << this->_name << " is died" << std::endl;
+}
+
+void    Zombie::setName( std::string name )
 {
     this->_name = name;
 }
 
-Zombie::~Zombie() 
+std::string Zombie::getName( void ) const
 {
-	std::cout << this->_name << " is died" << std::endl;
+    return (_name);
 }
 
 void Zombie::announce(void)
