@@ -1,16 +1,16 @@
 CXX = c++
 CXXFLAGS =  -Wall -Wextra -Werror -std=c++98
-SRC = Zombie.cpp main.cpp zombieHorde.cpp
+SRC = main.cpp
 OBJ_DIR = OBJ
 OBJ = $(addprefix $(OBJ_DIR)/, $(SRC:.cpp=.o))
-NAME = zombieHorde
+NAME = brain
 
 all: $(NAME)
 
 $(NAME): $(OBJ)
 	$(CXX) $(CXXFLAGS) $(OBJ) -o $(NAME)
 
-$(OBJ_DIR)/%.o:%.cpp ./Zombie.hpp | $(OBJ_DIR) 
+$(OBJ_DIR)/%.o:%.cpp | $(OBJ_DIR) 
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 
 $(OBJ_DIR):
