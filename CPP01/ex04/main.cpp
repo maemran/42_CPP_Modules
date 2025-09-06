@@ -3,18 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: maemran < maemran@student.42amman.com>     +#+  +:+       +#+        */
+/*   By: maemran <maemran@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/04 20:29:01 by maemran           #+#    #+#             */
-/*   Updated: 2025/09/06 07:22:28 by maemran          ###   ########.fr       */
+/*   Updated: 2025/09/06 10:05:03 by maemran          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <fstream>
 #include <string>
 #include <iostream>
-/// read it line by line 
-// take the line once change the word in the line move it into .replace file
 
 void    replace_word(char *old_word, char *new_word, std::string& line)
 {
@@ -22,10 +20,11 @@ void    replace_word(char *old_word, char *new_word, std::string& line)
     std::string newStr = new_word;
 
     size_t pos = line.find(oldStr);
-    if (pos != std::string::npos) 
+    while ((pos = line.find(oldStr, pos)) != std::string::npos)
     {
         line.erase(pos, oldStr.length());
         line.insert(pos, newStr);
+		pos += newStr.length();
     }
 }
 
