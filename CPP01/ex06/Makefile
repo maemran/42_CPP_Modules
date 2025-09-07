@@ -3,7 +3,7 @@ CXXFLAGS =  -Wall -Wextra -Werror -std=c++98
 SRC = main.cpp Harl.cpp
 OBJ_DIR = OBJ
 OBJ = $(addprefix $(OBJ_DIR)/, $(SRC:.cpp=.o))
-NAME = harl
+NAME = harlFilter
 
 all: $(NAME)
 
