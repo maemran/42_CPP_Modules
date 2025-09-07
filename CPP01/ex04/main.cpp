@@ -6,7 +6,7 @@
 /*   By: maemran <maemran@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/04 20:29:01 by maemran           #+#    #+#             */
-/*   Updated: 2025/09/06 10:05:03 by maemran          ###   ########.fr       */
+/*   Updated: 2025/09/07 15:50:31 by maemran          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,10 @@ int main(int argc, char **argv)
     int i = 0;
     
     if (argc != 4)
+	{
+		std::cout << "Error: wrong number of arguments!" << std::endl;
         return (1);
+	}
     if (!file.is_open() || !outFile.is_open())
         std::cerr << "Failed to open file." << std::endl;
     while (1)
