@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: maemran <maemran@student.42.fr>            +#+  +:+       +#+        */
+/*   By: maemran < maemran@student.42amman.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/13 16:30:44 by maemran           #+#    #+#             */
-/*   Updated: 2025/09/13 20:17:02 by maemran          ###   ########.fr       */
+/*   Updated: 2025/09/14 16:10:47 by maemran          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,23 +43,23 @@ Fixed::~Fixed()
 
 Fixed::Fixed( const int fix )
 {
+	std::cout << "Int constructor called" << std::endl;
 	_fix = fix << _fracPart;
 }
 
 Fixed::Fixed( const float fix)
 {
-	_fix = (int)(fix * (1 << _fracPart));
+	std::cout << "Float constructor called" << std::endl;
+	_fix = roundf((fix * (1 << _fracPart)));
 }
 
 int	Fixed::getRawBits( void ) const
 {
-	std::cout << "getRawBits member function called" << std::endl;
 	return (_fix);
 }
 
 void	Fixed::setRawBits( int const raw )
 {
-	std::cout << "setRawBits member function called" << std::endl;
  	this->_fix = raw;
 }
 
@@ -71,7 +71,16 @@ int		Fixed::toInt( void ) const
 	return (num);
 }
 
-//Fixed&	Fixed::operator<<(const Fixed& fixCopy)
-//{
-	
-//}
+float	Fixed::toFloat( void ) const
+{
+	float	num;
+
+	num = (float)(getRawBits()) / (1 << _fracPart);
+	return (num);
+}
+
+std::ostream&	operator<<( std::ostream& os, const Fixed& fix )
+{
+	os << fix.toFloat();
+	return (os);
+}

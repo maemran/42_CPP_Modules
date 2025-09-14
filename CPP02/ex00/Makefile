@@ -3,7 +3,7 @@ CXXFLAGS =  -Wall -Wextra -Werror -std=c++98
 SRC = main.cpp Fixed.cpp
 OBJ_DIR = OBJ
 OBJ = $(addprefix $(OBJ_DIR)/, $(SRC:.cpp=.o))
-NAME = CanonicalForm
+NAME = a.out
 
 all: $(NAME)
 
