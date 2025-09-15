@@ -6,7 +6,7 @@
 /*   By: maemran < maemran@student.42amman.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/14 22:29:10 by maemran           #+#    #+#             */
-/*   Updated: 2025/09/15 11:20:18 by maemran          ###   ########.fr       */
+/*   Updated: 2025/09/15 11:42:27 by maemran          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,9 +42,14 @@ Point Point::operator-( const Point& point ) const
 // const Fixed&  getX( void );
 //         const Fixed&  getY( void );
 
-const Fixed&  getX( void )
+Fixed&  Point::getX( void ) const
 {
-    return (_x);
+    Fixed  temp = _x;
+    return (temp);
 }
 
-
+Fixed&  Point::getY( void ) const
+{
+    Fixed   temp = _y;
+    return (temp);
+}
