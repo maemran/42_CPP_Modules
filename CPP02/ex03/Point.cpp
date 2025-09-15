@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Point.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: maemran < maemran@student.42amman.com>     +#+  +:+       +#+        */
+/*   By: maemran <maemran@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/14 22:29:10 by maemran           #+#    #+#             */
-/*   Updated: 2025/09/15 11:42:27 by maemran          ###   ########.fr       */
+/*   Updated: 2025/09/15 13:07:03 by maemran          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,16 +39,13 @@ Point Point::operator-( const Point& point ) const
     return (Point(xResult.toFloat() , yResult.toFloat()));
 }
 
-// const Fixed&  getX( void );
-//         const Fixed&  getY( void );
-
-Fixed&  Point::getX( void ) const
+Fixed  Point::getX( void ) const
 {
     Fixed  temp = _x;
     return (temp);
 }
 
-Fixed&  Point::getY( void ) const
+Fixed  Point::getY( void ) const
 {
     Fixed   temp = _y;
     return (temp);

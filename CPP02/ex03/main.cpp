@@ -3,49 +3,43 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: maemran < maemran@student.42amman.com>     +#+  +:+       +#+        */
+/*   By: maemran <maemran@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/13 18:50:44 by maemran           #+#    #+#             */
-/*   Updated: 2025/09/14 21:03:29 by maemran          ###   ########.fr       */
+/*   Updated: 2025/09/15 13:08:11 by maemran          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Fixed.hpp"
+#include "Point.hpp"
 
 int	main(void)
 {
-	Fixed a;
-	Fixed const b( Fixed( 5.05f ) * Fixed( 2 ) );
-	
-	std::cout << a << std::endl;
-	std::cout << ++a << std::endl;
-	std::cout << a << std::endl;
-	std::cout << a++ << std::endl;
-	std::cout << a << std::endl;
-	
-	std::cout << b << std::endl;
-	
-	std::cout << Fixed::max( a, b ) << std::endl;
+	Point a(0.0f, 0.0f);
+    Point b(10.0f, 0.0f);
+    Point c(5.0f, 10.0f);
 
-	// // my tests
-	// Fixed	f1(3.3f);
-	// Fixed	f2(4.4f);
-	// std::cout << f1 << std::endl;
-	// std::cout << --f1 << std::endl;
-	// std::cout << f1 << std::endl;
-	// std::cout << f1-- << std::endl;
-	// std::cout << f1 << std::endl;
-
+    Point p1(5.0f, 5.0f);
+    Point p2(5.0f, 0.0f);
+    Point p3(10.0f, 10.0f);
+    Point p4(3.0f, 4.0f);
 	
-	// std::cout << f1 + f2 << std::endl;
-	// std::cout << f2 - f1 << std::endl;
-	// std::cout << f1 * f2 << std::endl;
-	// std::cout << f1 / f2 << std::endl;
-	// std::cout << f1 + f2 + f1 << std::endl;
-
-	// if (f2 > f1)
-	// 	std::cout << f1 << std::endl;
+    std::cout << "Point (5,5)   -> " << bsp(a, b, c, p1) << std::endl;
+    std::cout << "Point (5,0)   -> " << bsp(a, b, c, p2) << std::endl;
+    std::cout << "Point (10,10) -> " << bsp(a, b, c, p3) << std::endl;
+    std::cout << "Point (3,4)   -> " << bsp(a, b, c, p4) << std::endl;
 	
-	// std::cout << Fixed::min(f1 , f2) << std::endl;
 	return (0);
 }
+
+//y=10           .     C(5,10)                  P3(10,10)
+//               |        *
+//y=9            |       / \
+//y=8            |      /   \
+//y=7            |     /     \
+//y=6            |    /       \
+//y=5            |   /   P1*   \
+//y=4            |  /  P4*      \
+//y=3            | /             \
+//y=2            |/               \
+//y=1            *-----------------*
+//y=0            A(0,0)    P2*     B(10,0)
