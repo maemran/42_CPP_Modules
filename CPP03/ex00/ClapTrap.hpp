@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ClapTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: maemran <maemran@student.42.fr>            +#+  +:+       +#+        */
+/*   By: maemran < maemran@student.42amman.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/15 13:59:21 by maemran           #+#    #+#             */
-/*   Updated: 2025/09/15 14:17:16 by maemran          ###   ########.fr       */
+/*   Updated: 2025/09/16 15:55:30 by maemran          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,18 @@
 #define CLAPTRAP_HPP
 
 #include <string>
+#include <iostream>
 
 class	ClapTrap
 {
 	private:
 		std::string		_name;
-		int				_HitPoints;
-		int				_EnergyPoints;
-		int				_AttackDamage;
+		unsigned int	_HitPoints;
+		unsigned int	_EnergyPoints;
+		unsigned int	_AttackDamage;
 	public:
 		ClapTrap();
-		ClapTrap( std::string& name );
+		ClapTrap( const std::string& name );
 		ClapTrap( const ClapTrap& other );
 		ClapTrap&	operator=( const ClapTrap& other );
 		~ClapTrap();

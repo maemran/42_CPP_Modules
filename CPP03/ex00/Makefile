@@ -1,16 +1,16 @@
-CPP = c++ 
+CPP = c++
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98
-SRC =
+SRC = main.cpp ClapTrap.cpp
 OBJ_DIR = OBJS
 OBJ = $(addprefix $(OBJ_DIR)/, $(SRC:.cpp=.o))
-NAME = phoneContacts
+NAME =  Aaaaand..
 
 all: $(NAME)
 
 $(NAME): $(OBJ)
 	$(CPP) $(CPPFLAGS) $(OBJ) -o $(NAME)
 
-$(OBJ_DIR)/%.o: %.cpp | $(OBJ_DIR) 
+$(OBJ_DIR)/%.o: %.cpp ./ClapTrap.hpp | $(OBJ_DIR) 
 	$(CPP) $(CPPFLAGS) -c $< -o $@
 
 $(OBJ_DIR):
