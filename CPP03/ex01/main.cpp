@@ -6,38 +6,42 @@
 /*   By: maemran < maemran@student.42amman.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/15 13:58:59 by maemran           #+#    #+#             */
-/*   Updated: 2025/09/16 16:19:35 by maemran          ###   ########.fr       */
+/*   Updated: 2025/09/16 19:45:28 by maemran          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ClapTrap.hpp"
+#include "ScavTrap.hpp"
 
 int     main( void )
 {
     {
         std::cout << "TEST ONE: " << std::endl;
-        ClapTrap    robot1("maemran");
+        ScavTrap    robot("maemran");
         
-        robot1.attack("mohammad");
+        robot.attack("mohammad");
         
-        robot1.takeDamage(9);
+        robot.takeDamage(35);
         
-        robot1.beRepaired(2);
+        robot.guardGate();
         
-        robot1.takeDamage(3);
+        robot.beRepaired(2);
+        
+        robot.takeDamage(67);
 
-        robot1.takeDamage(1);
+        robot.guardGate();
         
-        robot1.beRepaired(2);
+        robot.takeDamage(1);
+        
+        robot.beRepaired(2);
     }
     /******************************/
     
     {
         std::cout << "\nTEST TWO: " << std::endl;
-        ClapTrap    robot2("maemran");
+        ScavTrap    robot("maemran");
         
-        for (int i = 0; i < 11; i++)
-            robot2.attack("anonymous");
+        for (int i = 0; i < 51; i++)
+            robot.attack("anonymous");
     }
 
     return (0);
