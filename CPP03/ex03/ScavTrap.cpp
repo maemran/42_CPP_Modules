@@ -6,7 +6,7 @@
 /*   By: maemran < maemran@student.42amman.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/16 17:54:28 by maemran           #+#    #+#             */
-/*   Updated: 2025/09/17 00:32:17 by maemran          ###   ########.fr       */
+/*   Updated: 2025/09/17 01:01:16 by maemran          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ ScavTrap::ScavTrap( const std::string& name )
     :ClapTrap(name)
 {
 	std::cout << "ScavTrap Parameterized constructor called" << std::endl;
+	_name = name;
 	_HitPoints = 100;
 	_EnergyPoints = 50;
 	_AttackDamage = 20;

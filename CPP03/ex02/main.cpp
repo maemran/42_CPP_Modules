@@ -6,7 +6,7 @@
 /*   By: maemran < maemran@student.42amman.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/15 13:58:59 by maemran           #+#    #+#             */
-/*   Updated: 2025/09/16 21:17:28 by maemran          ###   ########.fr       */
+/*   Updated: 2025/09/16 21:22:38 by maemran          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int     main( void )
         std::cout << "FragTrap TEST: " << std::endl;
         FragTrap    robot("maemran");
         FragTrap    robot2 = robot;
-        
+                
         robot2.attack("mohammad");
         
         robot2.takeDamage(35);

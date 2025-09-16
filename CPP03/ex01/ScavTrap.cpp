@@ -6,7 +6,7 @@
 /*   By: maemran < maemran@student.42amman.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/16 17:54:28 by maemran           #+#    #+#             */
-/*   Updated: 2025/09/16 19:44:10 by maemran          ###   ########.fr       */
+/*   Updated: 2025/09/17 00:32:35 by maemran          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,10 @@ ScavTrap::ScavTrap( const ScavTrap& other )
     :ClapTrap(other)
 {
 	std::cout << "ScavTrap Copy constructor called" << std::endl;
+	this->_name = other._name;
+	this->_HitPoints = other._HitPoints;
+	this->_EnergyPoints = other._EnergyPoints;
+	this->_AttackDamage = other._AttackDamage;
 }
 
 ScavTrap&	ScavTrap::operator=( const ScavTrap& other )
