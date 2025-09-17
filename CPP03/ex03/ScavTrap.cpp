@@ -3,14 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ScavTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: maemran < maemran@student.42amman.com>     +#+  +:+       +#+        */
+/*   By: maemran <maemran@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/16 17:54:28 by maemran           #+#    #+#             */
-/*   Updated: 2025/09/17 01:01:16 by maemran          ###   ########.fr       */
+/*   Updated: 2025/09/17 14:10:01 by maemran          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScavTrap.hpp"
+
+unsigned int ScavTrap::EnergyPoints = 50;
 
 ScavTrap::ScavTrap()
 {

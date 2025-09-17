@@ -3,14 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   FragTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: maemran < maemran@student.42amman.com>     +#+  +:+       +#+        */
+/*   By: maemran <maemran@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/16 20:52:55 by maemran           #+#    #+#             */
-/*   Updated: 2025/09/17 01:00:45 by maemran          ###   ########.fr       */
+/*   Updated: 2025/09/17 14:10:19 by maemran          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "FragTrap.hpp"
+
+unsigned	int	FragTrap::HitPoints = 100;
+unsigned	int FragTrap::AttackDamage = 30;
 
 FragTrap::FragTrap()
 {

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ScavTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: maemran < maemran@student.42amman.com>     +#+  +:+       +#+        */
+/*   By: maemran <maemran@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/16 17:46:35 by maemran           #+#    #+#             */
-/*   Updated: 2025/09/16 23:56:15 by maemran          ###   ########.fr       */
+/*   Updated: 2025/09/17 14:10:08 by maemran          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@
 
 class ScavTrap: virtual public ClapTrap
 {
+	protected:
+		static	unsigned int EnergyPoints;
     public:
         ScavTrap();
         ScavTrap( const ScavTrap& other );

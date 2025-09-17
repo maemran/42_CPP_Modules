@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   FragTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: maemran < maemran@student.42amman.com>     +#+  +:+       +#+        */
+/*   By: maemran <maemran@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/16 20:43:19 by maemran           #+#    #+#             */
-/*   Updated: 2025/09/16 23:56:04 by maemran          ###   ########.fr       */
+/*   Updated: 2025/09/17 14:10:14 by maemran          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,9 @@
 
 class    FragTrap: virtual public ClapTrap
 {
+	protected:
+		static unsigned	int HitPoints;
+		static unsigned	int AttackDamage;
     public:
         FragTrap();
         FragTrap( const FragTrap& other );
