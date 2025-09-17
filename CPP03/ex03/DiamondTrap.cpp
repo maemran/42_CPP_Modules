@@ -6,7 +6,7 @@
 /*   By: maemran < maemran@student.42amman.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/16 23:43:29 by maemran           #+#    #+#             */
-/*   Updated: 2025/09/17 01:02:24 by maemran          ###   ########.fr       */
+/*   Updated: 2025/09/17 11:44:48 by maemran          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,10 +35,10 @@ DiamondTrap::DiamondTrap( const DiamondTrap& other )
 }
 
 DiamondTrap::DiamondTrap( const std::string& name)
-        :ClapTrap(name + "_clap_name"), FragTrap(name), ScavTrap(name)
 {
         std::cout << "DiamondTrap Parameterized constructor called" << std::endl;
         _name = name;
+        ClapTrap::_name = _name + "_clap_name";
         _HitPoints = FragTrap::_HitPoints;
         _EnergyPoints = ScavTrap::_EnergyPoints;
         _AttackDamage = FragTrap::_AttackDamage;
