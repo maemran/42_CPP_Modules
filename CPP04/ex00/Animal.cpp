@@ -6,7 +6,7 @@
 /*   By: maemran <maemran@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/17 18:19:58 by maemran           #+#    #+#             */
-/*   Updated: 2025/09/17 19:23:14 by maemran          ###   ########.fr       */
+/*   Updated: 2025/09/18 14:56:29 by maemran          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ Animal::~Animal()
 	std::cout << "Animal Destructor called" << std::endl;
 }
 
-void Animal::makeSound() {}
+void Animal::makeSound() const {}
 
 const std::string&	Animal::getType( void ) const
 {

@@ -6,7 +6,7 @@
 /*   By: maemran <maemran@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/17 19:07:10 by maemran           #+#    #+#             */
-/*   Updated: 2025/09/17 19:27:57 by maemran          ###   ########.fr       */
+/*   Updated: 2025/09/18 14:55:51 by maemran          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ class	Dog: public Animal
 		Dog( const std::string& type);
 		~Dog();
 		
-		void makeSound();
+		void makeSound() const;
 };
 
 #endif

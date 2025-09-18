@@ -6,7 +6,7 @@
 /*   By: maemran <maemran@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/17 18:41:38 by maemran           #+#    #+#             */
-/*   Updated: 2025/09/17 19:06:50 by maemran          ###   ########.fr       */
+/*   Updated: 2025/09/18 15:06:08 by maemran          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ Cat::~Cat()
 	std::cout << "Cat Destructor called" << std::endl;
 }
 
-void Cat::makeSound()
+void Cat::makeSound() const
 {
-	std::cout << "purr" << std::endl;
+	std::cout << "\033[38;5;201mpurr\033[0m" << std::endl;
 }

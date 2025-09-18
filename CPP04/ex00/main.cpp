@@ -6,22 +6,29 @@
 /*   By: maemran <maemran@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/17 19:13:58 by maemran           #+#    #+#             */
-/*   Updated: 2025/09/17 19:29:27 by maemran          ###   ########.fr       */
+/*   Updated: 2025/09/18 15:50:30 by maemran          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Cat.hpp"
 #include "Dog.hpp"
+#include "WrongCat.hpp"
 
 int main()
 {
 	const Animal* meta = new Animal();
-	(void) meta;
 	const Animal* j = new Dog();
 	const Animal* i = new Cat();
+	const WrongAnimal* wrong = new WrongCat();
+	
 	std::cout << j->getType() << " " << std::endl;
 	std::cout << i->getType() << " " << std::endl;
-	i->
-	//j->makeSound();
-	//meta->makeSound();
+	i->makeSound();
+	j->makeSound();
+	meta->makeSound();
+	wrong->makeSound();
+	delete	i;
+	delete	j;
+	delete	meta;
+	delete	wrong;
 }

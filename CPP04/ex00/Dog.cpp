@@ -6,7 +6,7 @@
 /*   By: maemran <maemran@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/17 19:07:04 by maemran           #+#    #+#             */
-/*   Updated: 2025/09/17 19:10:39 by maemran          ###   ########.fr       */
+/*   Updated: 2025/09/18 15:05:29 by maemran          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ Dog::~Dog()
 	std::cout << "Dog Destructor called" << std::endl;
 }
 
-void Dog::makeSound()
+void Dog::makeSound() const
 {
-	std::cout << "woof" << std::endl;
+	std::cout << "\033[38;5;51mwoof\033[0m" << std::endl;
 }
