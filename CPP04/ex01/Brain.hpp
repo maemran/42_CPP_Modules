@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Brain.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: maemran <maemran@student.42.fr>            +#+  +:+       +#+        */
+/*   By: maemran < maemran@student.42amman.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/18 16:01:59 by maemran           #+#    #+#             */
-/*   Updated: 2025/09/18 18:16:06 by maemran          ###   ########.fr       */
+/*   Updated: 2025/09/19 18:20:04 by maemran          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,17 @@
 
 class	Brain
 {
-	protected:
+	private:
 		std::string	ideas[100];
 	public:
 		Brain();
 		Brain( const Brain& other );
 		Brain&	operator=( const Brain& other );
 		~Brain();
+
+		void	printIdea( int index );
+		void	setIdea( const std::string& idea, int index );
+		std::string&	getIdea( int index );
 };
 
 #endif

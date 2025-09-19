@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Dog.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: maemran <maemran@student.42.fr>            +#+  +:+       +#+        */
+/*   By: maemran < maemran@student.42amman.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/17 19:07:10 by maemran           #+#    #+#             */
-/*   Updated: 2025/09/18 16:12:04 by maemran          ###   ########.fr       */
+/*   Updated: 2025/09/19 17:14:46 by maemran          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ class	Dog: public Animal
 		~Dog();
 		
 		void makeSound() const;
+		Brain&	getBrain( void ) const;
 };
 
 #endif

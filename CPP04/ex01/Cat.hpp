@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Cat.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: maemran <maemran@student.42.fr>            +#+  +:+       +#+        */
+/*   By: maemran < maemran@student.42amman.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/17 18:30:53 by maemran           #+#    #+#             */
-/*   Updated: 2025/09/18 16:11:41 by maemran          ###   ########.fr       */
+/*   Updated: 2025/09/19 17:14:59 by maemran          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ class	Cat: public Animal
 		~Cat();
 		
 		void makeSound() const;
+		Brain&	getBrain( void ) const;
 };
 
 #endif

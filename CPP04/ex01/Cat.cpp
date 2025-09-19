@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Cat.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: maemran <maemran@student.42.fr>            +#+  +:+       +#+        */
+/*   By: maemran < maemran@student.42amman.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/17 18:41:38 by maemran           #+#    #+#             */
-/*   Updated: 2025/09/18 19:23:49 by maemran          ###   ########.fr       */
+/*   Updated: 2025/09/19 18:09:23 by maemran          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,16 +24,19 @@ Cat::Cat( const Cat& other )
 {
 	std::cout << "Cat Copy constructor called" << std::endl;
 	this->type = other.type;
-	this->brain = other.brain;
+	brain = new Brain();
+	for (int i = 0; i < 100; i++)
+		this->brain->setIdea(other.brain->getIdea(i), i);
 }
-
 Cat&	Cat::operator=( const Cat& other )
 {
 	std::cout << "Cat Copy assignment operator called" << std::endl;
 	if (this != &other)
 	{
 		this->type = other.type;
-		this->brain = other.brain;
+		brain = new Brain();
+		for (int i = 0; i < 100; i++)
+			this->brain->setIdea(other.brain->getIdea(i), i);
 	}
 	return (*this);
 }
@@ -54,4 +57,9 @@ Cat::~Cat()
 void Cat::makeSound() const
 {
 	std::cout << "\033[38;5;201mpurr\033[0m" << std::endl;
+}
+
+Brain&	Cat::getBrain( void ) const
+{
+	return (*brain);
 }

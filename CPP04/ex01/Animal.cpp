@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Animal.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: maemran <maemran@student.42.fr>            +#+  +:+       +#+        */
+/*   By: maemran < maemran@student.42amman.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/17 18:19:58 by maemran           #+#    #+#             */
-/*   Updated: 2025/09/18 14:56:29 by maemran          ###   ########.fr       */
+/*   Updated: 2025/09/19 18:16:11 by maemran          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 Animal::Animal()
 {
-	std::cout << "Animal Default constructor called" << std::endl;
+	std::cout << "\033[38;5;46mAnimal Default constructor called\033[0m" << std::endl;
 	type = "";
 }
 
@@ -34,7 +34,7 @@ Animal&	Animal::operator=( const Animal& other )
 
 Animal::~Animal()
 {
-	std::cout << "Animal Destructor called" << std::endl;
+	std::cout << "\033[1;31mAnimal Destructor call\033[0m" << std::endl;
 }
 
 void Animal::makeSound() const {}
