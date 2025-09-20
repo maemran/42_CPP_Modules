@@ -3,14 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   AMateria.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: maemran < maemran@student.42amman.com>     +#+  +:+       +#+        */
+/*   By: maemran <maemran@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/20 00:35:47 by maemran           #+#    #+#             */
-/*   Updated: 2025/09/20 00:40:57 by maemran          ###   ########.fr       */
+/*   Updated: 2025/09/20 18:05:06 by maemran          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "AMateria.hpp"
+#include "ICharacter.hpp"
 
 AMateria::AMateria()
 {
@@ -35,3 +36,13 @@ AMateria&   AMateria::operator=( const AMateria& other )
 }
 
 AMateria::~AMateria() {}
+
+std::string const& AMateria::getType() const
+{
+    return type;
+}
+
+void AMateria::use(ICharacter& target)
+{
+    std::cout << "* does nothing to " << target.getName() << " *" << std::endl;
+}

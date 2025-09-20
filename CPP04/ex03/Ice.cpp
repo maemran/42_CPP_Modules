@@ -3,22 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   Ice.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: maemran < maemran@student.42amman.com>     +#+  +:+       +#+        */
+/*   By: maemran <maemran@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/20 00:50:41 by maemran           #+#    #+#             */
-/*   Updated: 2025/09/20 01:24:47 by maemran          ###   ########.fr       */
+/*   Updated: 2025/09/20 18:05:57 by maemran          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-        // Ice();
-        // Ice( const Ice& other );
-        // Ice&   operator=( const Ice& other );
-        // ~Ice();
-        
-        // AMateria* clone() const;
-        // void use(ICharacter& target);
-
 #include "Ice.hpp"
+#include "ICharacter.hpp"
 
 Ice::Ice()
 {
@@ -41,11 +34,10 @@ Ice::~Ice() {}
 
 AMateria* Ice::clone() const
 {
-    AMateria*   obj = new Ice(*this);
-    return (obj);
+    return (new Ice(*this));
 }
 
 void Ice::use(ICharacter& target)
 {
-    std::cout << 
+    std::cout << "* shoots an ice bolt at " << target.getName() << " *" << std::endl;
 }
