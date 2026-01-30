@@ -1,26 +1,26 @@
-CPP = c++
-CPPFLAGS = -Wall -Wextra -Werror -std=c++98
-SRC =
-OBJ_DIR = OBJS
+CXX = c++
+CXXFLAGS =  -Wall -Wextra -Werror -std=c++98
+SRC = main.cpp Bureaucrat.cpp
+OBJ_DIR = OBJ
 OBJ = $(addprefix $(OBJ_DIR)/, $(SRC:.cpp=.o))
-NAME =  a.out
+NAME = a.out
 
 all: $(NAME)
 
 $(NAME): $(OBJ)
-        $(CPP) $(CPPFLAGS) $(OBJ) -o $(NAME)
+	$(CXX) $(CXXFLAGS) $(OBJ) -o $(NAME)
 
-$(OBJ_DIR)/%.o: %.cpp | $(OBJ_DIR)
-        $(CPP) $(CPPFLAGS) -c $< -o $@
+$(OBJ_DIR)/%.o:%.cpp ./Bureaucrat.hpp  | $(OBJ_DIR) 
+	$(CXX) $(CXXFLAGS) -c $< -o $@
 
 $(OBJ_DIR):
-        mkdir -p $(OBJ_DIR)
+	mkdir -p $(OBJ_DIR) 
 
 clean:
-        rm -fr $(OBJ_DIR)
+	rm -fr $(OBJ_DIR)
 
 fclean: clean
-        rm -f $(NAME)
+	rm -fr $(NAME)
 
 re: fclean all
 
