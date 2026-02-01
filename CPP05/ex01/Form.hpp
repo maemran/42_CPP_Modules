@@ -6,9 +6,12 @@
 /*   By: maemran <maemran@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/31 15:06:37 by maemran           #+#    #+#             */
-/*   Updated: 2026/01/31 16:42:52 by maemran          ###   ########.fr       */
+/*   Updated: 2026/02/01 12:22:46 by maemran          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#ifndef FORM_HPP
+#define FORM_HPP
 
 #include "Bureaucrat.hpp"
 
@@ -32,7 +35,7 @@ class Form
 		int getGTExecute() const;
 		bool	getIsSign() const;
 
-		void  beSigned( Bureaucrat& obj );
+		void  beSigned( const Bureaucrat& obj );
 
 		class	GradeTooHighException: std::exception
 		{
@@ -56,3 +59,5 @@ class Form
 };
 
 std::ostream&	operator<<( std::ostream& os, const Form& obj );
+
+#endif

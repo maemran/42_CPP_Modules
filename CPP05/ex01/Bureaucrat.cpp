@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: maemran < maemran@student.42amman.com>     +#+  +:+       +#+        */
+/*   By: maemran <maemran@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/31 00:07:55 by maemran           #+#    #+#             */
-/*   Updated: 2026/01/31 01:13:52 by maemran          ###   ########.fr       */
+/*   Updated: 2026/02/01 12:44:59 by maemran          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Bureaucrat.hpp"
+#include "Form.hpp"
 
 Bureaucrat::Bureaucrat()
 {
@@ -20,6 +20,10 @@ Bureaucrat::Bureaucrat()
 
 Bureaucrat::Bureaucrat( const std::string  &name, int grade )
 {
+	if (grade < 1)
+		throw   Bureaucrat::GradeTooHighException("Grade too high");
+	if (grade > 150)
+		throw   Bureaucrat::GradeTooLowException("Grade too low");
     _name = name;
     _grade = grade;
 }
@@ -87,17 +91,37 @@ void    Bureaucrat::incrementGrade(int num)
 {
     _grade -= num;
     if (_grade < 1)
-        throw GradeTooHighException("The grade is less than 1");
+        throw GradeTooHighException("Grade too high");
 }
 void    Bureaucrat::decrementGrade(int num)
 {
     _grade += num;
     if (_grade > 150)
-        throw   GradeTooLowException("the garde is more than 150");
+        throw   GradeTooLowException("Grade too low");
 }
 
 std::ostream&  operator<<( std::ostream& os, const Bureaucrat& obj )
 {
     os << obj.getName() << ", bureaucrat grade " << obj.getGrade();
     return (os);
+}
+
+void    Bureaucrat::signForm( Form& obj ) const
+{
+	try
+	{
+		if (obj.getIsSign() == true)
+		{
+			std::cout << _name << " cannot sign " << obj.getName()
+			<< " because form is already signed." << std::endl;
+			return ;
+		}
+		obj.beSigned(*this);
+		std::cout << _name << " signs " << obj.getName() << std::endl;
+	}
+	catch (Form::GradeTooLowException& e)
+	{
+		std::cout << _name << " cannot sign " << obj.getName()
+			<< " because " << e.what() << std::endl;
+	}
 }

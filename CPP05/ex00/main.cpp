@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: maemran < maemran@student.42amman.com>     +#+  +:+       +#+        */
+/*   By: maemran <maemran@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/31 00:49:12 by maemran           #+#    #+#             */
-/*   Updated: 2026/01/31 01:14:03 by maemran          ###   ########.fr       */
+/*   Updated: 2026/02/01 12:49:36 by maemran          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,23 +14,19 @@
 
 int main(void)
 {
-    Bureaucrat a("mohammad", 150);
-    std::cout << a << std::endl;
-    try {
-        a.decrementGrade(1);
-    }
-    catch (Bureaucrat::GradeTooLowException& e)
+	try 
+	{
+		Bureaucrat b("mohammad", 50);
+		std::cout << b << std::endl;
+		b.incrementGrade(50);
+	}
+	catch (Bureaucrat::GradeTooHighException& e)
+	{
+		std::cout << e.what() << std::endl;
+	}
+	catch (Bureaucrat::GradeTooLowException& e)
     {
         std::cout << e.what() << std::endl;
     }
-    
-    std::cout << a << std::endl;
-
-    try {
-        a.incrementGrade(151);
-    }
-    catch (Bureaucrat::GradeTooHighException& e)
-    {
-        std::cout << e.what() << std::endl;
-    }
+	return (0);
 }

@@ -3,12 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: maemran < maemran@student.42amman.com>     +#+  +:+       +#+        */
+/*   By: maemran <maemran@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/01 00:41:17 by maemran           #+#    #+#             */
-/*   Updated: 2026/01/31 01:13:35 by maemran          ###   ########.fr       */
+/*   Updated: 2026/02/01 12:16:53 by maemran          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#ifndef BUREAUCRAT_HPP
+#define BUREAUCRAT_HPP
 
 #include <string>
 #include <exception>
@@ -55,3 +58,5 @@ class   Bureaucrat
 };
 
 std::ostream&  operator<<( std::ostream& os, const Bureaucrat& obj );
+
+#endif
