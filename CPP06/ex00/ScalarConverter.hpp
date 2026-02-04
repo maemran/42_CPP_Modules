@@ -6,7 +6,7 @@
 /*   By: maemran <maemran@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/03 19:37:51 by maemran           #+#    #+#             */
-/*   Updated: 2026/02/03 21:18:58 by maemran          ###   ########.fr       */
+/*   Updated: 2026/02/04 21:07:32 by maemran          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,9 @@
 #define SCALARCONVERTER_HPP
 
 #include <string>
+#include <sstream>
+#include <iostream>
+#include <limits>
 
 class	ScalarConverter
 {

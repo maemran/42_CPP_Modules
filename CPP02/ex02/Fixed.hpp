@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: maemran < maemran@student.42amman.com>     +#+  +:+       +#+        */
+/*   By: maemran <maemran@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/13 16:21:51 by maemran           #+#    #+#             */
-/*   Updated: 2025/09/14 20:22:32 by maemran          ###   ########.fr       */
+/*   Updated: 2026/02/04 12:59:14 by maemran          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ class Fixed
 		Fixed		operator--(int);
 
 		static Fixed&			min(Fixed& f1, Fixed& f2);
-		static const Fixed&		min(const Fixed& f1, const Fixed& f2);
+		static const Fixed&	min(const Fixed& f1, const Fixed& f2);
 		static Fixed&			max(Fixed& f1, Fixed& f2);
 		static const Fixed&		max(const Fixed& f1, const Fixed& f2);
 };
