@@ -6,16 +6,24 @@
 /*   By: maemran <maemran@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/03 19:45:15 by maemran           #+#    #+#             */
-/*   Updated: 2026/02/04 21:31:44 by maemran          ###   ########.fr       */
+/*   Updated: 2026/02/05 18:03:15 by maemran          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScalarConverter.hpp"
+#include <exception>
 
 int	main(int argc, char **argv)
 {
-	(void)argc;
-	ScalarConverter::convert(argv[1]);
-	std::cout << (float)(std::numeric_limits<dou>::max() + 1) << std::endl;
+	try 
+	{
+		if (argc != 2)
+			throw std::logic_error("Error: Invalid number of arguments");
+		ScalarConverter::convert(argv[1]);
+	}
+	catch (std::logic_error& e) 
+	{
+		std::cout << e.what() << std::endl;
+	}
 	return (0);
 }

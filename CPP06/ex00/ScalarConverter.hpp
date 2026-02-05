@@ -6,7 +6,7 @@
 /*   By: maemran <maemran@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/03 19:37:51 by maemran           #+#    #+#             */
-/*   Updated: 2026/02/04 21:07:32 by maemran          ###   ########.fr       */
+/*   Updated: 2026/02/05 18:06:48 by maemran          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 #include <sstream>
 #include <iostream>
 #include <limits>
+#include <cmath>
 
 class	ScalarConverter
 {
