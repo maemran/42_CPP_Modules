@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   A.hpp                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: maemran <maemran@student.42.fr>            +#+  +:+       +#+        */
+/*   By: maemran < maemran@student.42amman.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/05 19:31:34 by maemran           #+#    #+#             */
-/*   Updated: 2026/02/05 19:31:49 by maemran          ###   ########.fr       */
+/*   Updated: 2026/02/06 22:13:22 by maemran          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #define A_HPP
 
 #include "Base.hpp"
+#include <iostream>
 
 class A : public Base
 {

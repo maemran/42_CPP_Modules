@@ -1,6 +1,6 @@
 CXX = c++
 CXXFLAGS =  -Wall -Wextra -Werror -std=c++98
-SRC = main.cpp Serializer.cpp
+SRC = main.cpp util.cpp Base.cpp
 OBJ_DIR = OBJ
 OBJ = $(addprefix $(OBJ_DIR)/, $(SRC:.cpp=.o))
 NAME = a.out
@@ -10,7 +10,7 @@ all: $(NAME)
 $(NAME): $(OBJ)
 	$(CXX) $(CXXFLAGS) $(OBJ) -o $(NAME)
 
-$(OBJ_DIR)/%.o:%.cpp Serializer.hpp | $(OBJ_DIR) 
+$(OBJ_DIR)/%.o:%.cpp util.hpp Base.hpp A.hpp B.hpp C.hpp | $(OBJ_DIR) 
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 
 $(OBJ_DIR):
