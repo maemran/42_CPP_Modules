@@ -6,7 +6,7 @@
 /*   By: maemran < maemran@student.42amman.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/10 11:52:26 by maemran           #+#    #+#             */
-/*   Updated: 2026/02/10 12:13:41 by maemran          ###   ########.fr       */
+/*   Updated: 2026/02/10 12:30:41 by maemran          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #define MUTANTSTACK_HPP
 
 #include <stack>
+#include <iostream>
 
 template <typename T>
 class   MutantStack : public std::stack<T>
