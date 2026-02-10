@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: maemran < maemran@student.42amman.com>     +#+  +:+       +#+        */
+/*   By: maemran <maemran@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/10 11:35:37 by maemran           #+#    #+#             */
-/*   Updated: 2026/02/10 12:39:17 by maemran          ###   ########.fr       */
+/*   Updated: 2026/02/10 13:21:44 by maemran          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ int main()
         mstack.push(3);
         mstack.push(5);
         mstack.push(737);
-        //[...]
         mstack.push(0);
         MutantStack<int>::iterator it = mstack.begin();
         MutantStack<int>::iterator ite = mstack.end();
@@ -34,8 +33,8 @@ int main()
         --it;
         while (it != ite)
         {
-        std::cout << *it << std::endl;
-        ++it;
+        	std::cout << *it << std::endl;
+        	++it;
         }
         std::cout << "----- reverse iterator test -----" << std::endl;
         MutantStack<int>::reverse_iterator rit = mstack.rbegin();
@@ -61,7 +60,6 @@ int main()
         mstack.push_back(3);
         mstack.push_back(5);
         mstack.push_back(737);
-        //[...]
         mstack.push_back(0);
         std::list<int>::iterator it = mstack.begin();
         std::list<int>::iterator ite = mstack.end();
@@ -69,8 +67,8 @@ int main()
         --it;
         while (it != ite)
         {
-        std::cout << *it << std::endl;
-        ++it;
+        	std::cout << *it << std::endl;
+        	++it;
         }
     }
     return 0;
