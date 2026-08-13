@@ -1,6 +1,5 @@
 #include "PmergeMe.hpp"
 
-#include <algorithm>
 #include <ctime>
 #include <iomanip>
 #include <iostream>
@@ -21,118 +20,154 @@ PmergeMe& PmergeMe::operator=(const PmergeMe& other) {
 
 namespace {
 
-std::vector<int> jacobsthalOrder(int n) {
+std::vector<int> getJacobsthalOrder(int n) {
+	std::vector<int> order;
+	if (n < 1)
+		return order;
+
 	std::vector<int> jacobsthal;
-	jacobsthal.push_back(0);
 	jacobsthal.push_back(1);
-	while (jacobsthal.back() < n) {
+	jacobsthal.push_back(3);
+	while (jacobsthal.back() - 1 < n) {
 		std::size_t i = jacobsthal.size();
 		jacobsthal.push_back(jacobsthal[i - 1] + 2 * jacobsthal[i - 2]);
 	}
 
-	std::vector<int> order;
 	for (std::size_t k = 1; k < jacobsthal.size(); ++k) {
-		int high = jacobsthal[k];
-		int low = jacobsthal[k - 1] + 1;
+		int high = jacobsthal[k] - 1;
+		if (high > n)
+			high = n;
+		int low = jacobsthal[k - 1];
 		for (int j = high; j >= low; --j)
-			if (j < n)
-				order.push_back(j);
+			order.push_back(j);
 	}
 	return order;
 }
 
-std::vector<int> fordJohnsonVector(const std::vector<int>& input) {
-	if (input.size() < 2)
-		return input;
-
-	std::vector<std::pair<int, int> > pairs;
-	int straggler = 0;
-	bool hasStraggler = false;
-
-	std::size_t i = 0;
-	for (; i + 1 < input.size(); i += 2) {
-		int a = input[i];
-		int b = input[i + 1];
-		if (a < b)
-			std::swap(a, b);
-		pairs.push_back(std::make_pair(a, b));
+void binaryInsertVector(std::vector<int>& arr, int value) {
+	int low = 0;
+	int high = static_cast<int>(arr.size());
+	while (low < high) {
+		int mid = low + (high - low) / 2;
+		if (arr[mid] < value)
+			low = mid + 1;
+		else
+			high = mid;
 	}
-	if (i < input.size()) {
-		straggler = input[i];
-		hasStraggler = true;
-	}
-
-	std::sort(pairs.begin(), pairs.end());
-
-	std::vector<int> main;
-	std::vector<int> pend;
-	for (std::size_t k = 0; k < pairs.size(); ++k) {
-		main.push_back(pairs[k].first);
-		pend.push_back(pairs[k].second);
-	}
-
-	main = fordJohnsonVector(main);
-
-	std::vector<int> chain;
-	chain.reserve(input.size());
-	chain.push_back(pend[0]);
-	chain.insert(chain.end(), main.begin(), main.end());
-
-	std::vector<int> order = jacobsthalOrder(pend.size());
-	for (std::size_t k = 0; k < order.size(); ++k) {
-		int value = pend[order[k]];
-		chain.insert(std::lower_bound(chain.begin(), chain.end(), value), value);
-	}
-
-	if (hasStraggler)
-		chain.insert(std::lower_bound(chain.begin(), chain.end(), straggler), straggler);
-	return chain;
+	arr.insert(arr.begin() + low, value);
 }
 
-std::deque<int> fordJohnsonDeque(const std::deque<int>& input) {
-	if (input.size() < 2)
-		return input;
+void binaryInsertDeque(std::deque<int>& arr, int value) {
+	int low = 0;
+	int high = static_cast<int>(arr.size());
+	while (low < high) {
+		int mid = low + (high - low) / 2;
+		if (arr[mid] < value)
+			low = mid + 1;
+		else
+			high = mid;
+	}
+	arr.insert(arr.begin() + low, value);
+}
+
+void fordJohnsonVector(std::vector<int>& arr) {
+	if (arr.size() <= 1)
+		return;
+
+	std::vector<std::pair<int, int> > pairs;
+	bool hasStraggler = false;
+	int straggler = 0;
+	for (std::size_t i = 0; i + 1 < arr.size(); i += 2) {
+		if (arr[i] > arr[i + 1])
+			pairs.push_back(std::make_pair(arr[i], arr[i + 1]));
+		else
+			pairs.push_back(std::make_pair(arr[i + 1], arr[i]));
+	}
+	if (arr.size() % 2 != 0) {
+		hasStraggler = true;
+		straggler = arr.back();
+	}
+
+	std::vector<int> largers;
+	for (std::size_t i = 0; i < pairs.size(); i++)
+		largers.push_back(pairs[i].first);
+
+	std::vector<int> origLargers = largers;
+	fordJohnsonVector(largers);
+
+	std::vector<int> smallers(largers.size());
+	std::vector<bool> used(pairs.size(), false);
+	for (std::size_t i = 0; i < largers.size(); i++) {
+		for (std::size_t j = 0; j < origLargers.size(); j++) {
+			if (!used[j] && origLargers[j] == largers[i]) {
+				smallers[i] = pairs[j].second;
+				used[j] = true;
+				break;
+			}
+		}
+	}
+
+	std::vector<int> sorted = largers;
+	if (!smallers.empty())
+		sorted.insert(sorted.begin(), smallers[0]);
+	if (smallers.size() > 1) {
+		std::vector<int> order = getJacobsthalOrder(static_cast<int>(smallers.size()) - 1);
+		for (std::size_t i = 0; i < order.size(); i++)
+			binaryInsertVector(sorted, smallers[order[i]]);
+	}
+	if (hasStraggler)
+		binaryInsertVector(sorted, straggler);
+	arr = sorted;
+}
+
+void fordJohnsonDeque(std::deque<int>& arr) {
+	if (arr.size() <= 1)
+		return;
 
 	std::deque<std::pair<int, int> > pairs;
-	int straggler = 0;
 	bool hasStraggler = false;
-
-	std::size_t i = 0;
-	for (; i + 1 < input.size(); i += 2) {
-		int a = input[i];
-		int b = input[i + 1];
-		if (a < b)
-			std::swap(a, b);
-		pairs.push_back(std::make_pair(a, b));
+	int straggler = 0;
+	for (std::size_t i = 0; i + 1 < arr.size(); i += 2) {
+		if (arr[i] > arr[i + 1])
+			pairs.push_back(std::make_pair(arr[i], arr[i + 1]));
+		else
+			pairs.push_back(std::make_pair(arr[i + 1], arr[i]));
 	}
-	if (i < input.size()) {
-		straggler = input[i];
+	if (arr.size() % 2 != 0) {
 		hasStraggler = true;
+		straggler = arr.back();
 	}
 
-	std::sort(pairs.begin(), pairs.end());
+	std::deque<int> largers;
+	for (std::size_t i = 0; i < pairs.size(); i++)
+		largers.push_back(pairs[i].first);
 
-	std::deque<int> main;
-	std::deque<int> pend;
-	for (std::size_t k = 0; k < pairs.size(); ++k) {
-		main.push_back(pairs[k].first);
-		pend.push_back(pairs[k].second);
+	std::deque<int> origLargers = largers;
+	fordJohnsonDeque(largers);
+
+	std::deque<int> smallers(largers.size());
+	std::vector<bool> used(pairs.size(), false);
+	for (std::size_t i = 0; i < largers.size(); i++) {
+		for (std::size_t j = 0; j < origLargers.size(); j++) {
+			if (!used[j] && origLargers[j] == largers[i]) {
+				smallers[i] = pairs[j].second;
+				used[j] = true;
+				break;
+			}
+		}
 	}
 
-	main = fordJohnsonDeque(main);
-
-	std::deque<int> chain = main;
-	chain.push_front(pend[0]);
-
-	std::vector<int> order = jacobsthalOrder(pend.size());
-	for (std::size_t k = 0; k < order.size(); ++k) {
-		int value = pend[order[k]];
-		chain.insert(std::lower_bound(chain.begin(), chain.end(), value), value);
+	std::deque<int> sorted = largers;
+	if (!smallers.empty())
+		sorted.push_front(smallers[0]);
+	if (smallers.size() > 1) {
+		std::vector<int> order = getJacobsthalOrder(static_cast<int>(smallers.size()) - 1);
+		for (std::size_t i = 0; i < order.size(); i++)
+			binaryInsertDeque(sorted, smallers[order[i]]);
 	}
-
 	if (hasStraggler)
-		chain.insert(std::lower_bound(chain.begin(), chain.end(), straggler), straggler);
-	return chain;
+		binaryInsertDeque(sorted, straggler);
+	arr = sorted;
 }
 
 }  // namespace
@@ -145,13 +180,13 @@ void PmergeMe::sortAndDisplay(const std::vector<int>& input) const {
 
 	std::vector<int> vec = input;
 	clock_t start = clock();
-	vec = fordJohnsonVector(vec);
+	fordJohnsonVector(vec);
 	clock_t end = clock();
 	double vectorTime = static_cast<double>(end - start) / CLOCKS_PER_SEC * 1000000.0;
 
 	std::deque<int> deq(input.begin(), input.end());
 	start = clock();
-	deq = fordJohnsonDeque(deq);
+	fordJohnsonDeque(deq);
 	end = clock();
 	double dequeTime = static_cast<double>(end - start) / CLOCKS_PER_SEC * 1000000.0;
 
